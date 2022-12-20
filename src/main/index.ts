@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use strict";
 
 import { app, protocol, BrowserWindow } from "electron";
@@ -58,7 +59,7 @@ app.on("ready", async () => {
     // Install Vue Devtools
     try {
       await installExtension(VUEJS3_DEVTOOLS);
-    } catch (e) {
+    } catch (e: any) {
       console.error("Vue Devtools failed to install:", e.toString());
     }
   }
