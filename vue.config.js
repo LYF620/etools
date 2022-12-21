@@ -3,9 +3,9 @@ const path = require("path");
 const { defineConfig } = require("@vue/cli-service");
 
 module.exports = defineConfig({
-  transpileDependencies: true,
+  transpileDependencies: false,
   configureWebpack: {
-    target: "electron-main",
+    // target: "electron-main",
     resolve: {
       alias: {
         "@": path.join(__dirname, "/src/renderer"),
@@ -25,12 +25,14 @@ module.exports = defineConfig({
       // externals: ["pouchdb", "extract-file-icon"],
       // Use this to change the entry point of your app's render process. default src/[main|index].[js|ts]
       builderOptions: {
-        productName: "rubick2",
-        appId: "com.muwoo.rubick",
+        productName: "etools",
+        // appId: "com.muwoo.rubick",
         compression: "maximum",
         directories: {
           output: "build",
         },
+        disableMainProcessTypescript: true,
+        mainProcessTypeChecking: false,
         // files: ["dist_electron/**/*"],
         // dmg: {
         //   contents: [
