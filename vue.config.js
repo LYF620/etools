@@ -22,7 +22,7 @@ module.exports = defineConfig({
       nodeIntegration: true,
       mainProcessFile: "src/main/index.ts",
       mainProcessWatch: ["src/main"],
-      preload: "src/main//preload.js",
+      preload: "src/main/preload.js",
       // externals: ["pouchdb", "extract-file-icon"],
       // Use this to change the entry point of your app's render process. default src/[main|index].[js|ts]
       builderOptions: {
