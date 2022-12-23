@@ -19,7 +19,7 @@ module.exports = defineConfig({
   },
   pluginOptions: {
     electronBuilder: {
-      nodeIntegration: true,
+      nodeIntegration: false,
       mainProcessFile: "src/main/index.ts",
       mainProcessWatch: ["src/main"],
       // externals: ["pouchdb", "extract-file-icon"],
