@@ -32,8 +32,6 @@ module.exports = defineConfig({
         directories: {
           output: "build",
         },
-        disableMainProcessTypescript: true,
-        mainProcessTypeChecking: false,
         // files: ["dist_electron/**/*"],
         // dmg: {
         //   contents: [

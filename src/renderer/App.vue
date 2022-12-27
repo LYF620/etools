@@ -1,18 +1,19 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <Button>7896321</Button>
+
+  <div class="themeSwitch">
+    <InputSwitch />
+  </div>
+
   <router-view />
 </template>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.themeSwitch {
+  width: 50px;
+  position: sticky;
+  top: 15px;
+  right: 10px;
 }
 
 nav {

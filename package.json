@@ -1,19 +1,24 @@
 {
   "name": "etools",
+  "author": "Eric_Liu",
+  "description": "A tool to make development easier",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build --inspect",
-    "electron:serve": "vue-cli-service electron:serve",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "rm -rf dist_electron & vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.8.3",
+    "electron-builder": "^23.6.0",
+    "primeicons": "^6.0.1",
+    "primevue": "^3",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
