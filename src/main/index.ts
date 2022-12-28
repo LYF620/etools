@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use strict";
 
-import { app, protocol, BrowserWindow, nativeTheme } from "electron";
+import { app, protocol, BrowserWindow, nativeTheme, ipcMain } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer";
 import path from "path";
@@ -20,9 +20,8 @@ async function createWindow() {
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
-      nodeIntegration: process.env
-        .ELECTRON_NODE_INTEGRATION as unknown as boolean,
-      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
+      nodeIntegration: true,
+      contextIsolation: false,
       // __dirname 字符串指向当前正在执行脚本的路径
       // path.join API 将多个路径联结在一起，创建一个跨平台的路径字符串。
       preload: path.join(__dirname, "preload.js"),
@@ -38,6 +37,18 @@ async function createWindow() {
     // Load the index.html when not in development
     win.loadURL("app://./index.html");
   }
+
+  // 默认跟随系统  https://www.electronjs.org/zh/docs/latest/api/native-theme#nativethemethemesource
+  nativeTheme.themeSource = "system";
+
+  ipcMain.handle("dark-mode:toggle", () => {
+    if (nativeTheme.shouldUseDarkColors) {
+      nativeTheme.themeSource = "light";
+    } else {
+      nativeTheme.themeSource = "dark";
+    }
+    return nativeTheme.shouldUseDarkColors;
+  });
 }
 
 // Quit when all windows are closed.
