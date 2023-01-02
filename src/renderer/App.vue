@@ -7,13 +7,9 @@ const checked = ref(false);
 // 用来修改状态、触发更新的函数
 async function toggleTheme() {
   console.log("toggle");
-  const isDarkMode = await window.etoolsBridge.toggle();
-
+  // 切换当前主题
+  await window.etoolsBridge.toggle();
   checked.value = !checked.value;
-}
-
-async function toggleSystem() {
-  const isDarkMode = await window.etoolsBridge.system();
 }
 
 // 生命周期钩子
@@ -27,7 +23,11 @@ onMounted(() => {
     <InputSwitch @click="toggleTheme" v-model="checked" />
   </div>
 
-  <Button @click="toggleSystem" />
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+
   <router-view />
 </template>
 
