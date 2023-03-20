@@ -1,6 +1,6 @@
-const path = require("path");
+const path = require("path")
 
-const { defineConfig } = require("@vue/cli-service");
+const { defineConfig } = require("@vue/cli-service")
 
 module.exports = defineConfig({
   transpileDependencies: false,
@@ -8,20 +8,20 @@ module.exports = defineConfig({
     // target: "electron-main",
     resolve: {
       alias: {
-        "@": path.join(__dirname, "/src/renderer"),
-      },
-    },
+        "@": path.join(__dirname, "/src/renderer")
+      }
+    }
   },
   pages: {
     index: {
-      entry: "src/renderer/main.ts",
-    },
+      entry: "src/renderer/main.ts"
+    }
   },
   pluginOptions: {
     electronBuilder: {
-      nodeIntegration: true,
+      // nodeIntegration: true,
       mainProcessFile: "src/main/index.ts",
-      mainProcessWatch: ["src/main"],
+      // mainProcessWatch: ["src/main"],
       // externals: ["pouchdb", "extract-file-icon"],
       // Use this to change the entry point of your app's render process. default src/[main|index].[js|ts]
       builderOptions: {
@@ -29,10 +29,9 @@ module.exports = defineConfig({
         // appId: "com.muwoo.rubick",
         compression: "maximum",
         directories: {
-          output: "build",
-        },
-        disableMainProcessTypescript: true,
-        mainProcessTypeChecking: false,
+          output: "build"
+        }
+        // disableMainProcessTypescript: true
         // files: ["dist_electron/**/*"],
         // dmg: {
         //   contents: [
@@ -69,7 +68,7 @@ module.exports = defineConfig({
         //   publish: ["github"],
         //   target: "deb",
         // },
-      },
-    },
-  },
-});
+      }
+    }
+  }
+})
